@@ -2,7 +2,6 @@ var cucUtils = require('../'),
     expect = require('chai').expect;
 
 describe('rawToObject', function () {
-
   it('sets first level properties correctly', function () {
     var input = [ [ 'id', 123 ], [ 'email', 'user@example.com' ] ];
     var actual = cucUtils.helpers.rawToObject(input);
