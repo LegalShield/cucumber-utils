@@ -1,13 +1,20 @@
 {
   "name": "cucumber-utils",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "A collection of utilities to make cucumberjs easier",
+  "homepage": "https://github.com/LegalShield/cucumber-utils",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha ./test"
   },
-  "author": "",
+  "author": {
+    "name": "Jonathon Storer",
+    "email": "jonathon.scott.storer@gmail.com"
+  },
   "license": "ISC",
+  "engines": {
+    "node": "*"
+  },
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.1.0"
