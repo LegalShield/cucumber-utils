@@ -6,8 +6,7 @@ describe('rawToObject', function () {
     var input = [ [ 'id', 123 ], [ 'email', 'user@example.com' ] ];
     var actual = cucUtils.helpers.rawToObject(input);
 
-    expect(actual).to.deep.equal({
-      id: 123,
+    expect(actual).to.deep.equal({ id: 123,
       email: 'user@example.com'
     });
   });
@@ -67,6 +66,21 @@ describe('rawToObject', function () {
     expect(actual).to.eql({
       0: 'First',
       two: 'Last'
+    });
+  });
+
+  var specialCases = [
+    { name: 'Array', input: [ 'array', '[]' ], output: { 'array': [] } },
+    { name: 'Object', input: [ 'object', '{}' ], output: { 'object': {} } },
+    { name: 'True', input: [ 'true', 'true' ], output: { 'true': true } },
+    { name: 'False', input: [ 'false', 'false' ], output: { 'false': false } },
+    { name: 'Null', input: [ 'null', 'null' ], output: { 'null': null } }
+  ];
+
+  specialCases.forEach(function (specialCase) {
+    it('parses ' + specialCase.name + ' correctly', function () {
+      var actual = cucUtils.helpers.rawToObject([ specialCase.input ]);
+      expect(actual).to.eql(specialCase.output);
     });
   });
 });
