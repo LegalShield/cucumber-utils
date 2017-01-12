@@ -5,7 +5,9 @@
   "homepage": "https://github.com/LegalShield/cucumber-utils",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha ./test"
+    "integration": "./node_modules/.bin/cucumber-js",
+    "unit": "./node_modules/.bin/mocha ./test",
+    "test": "npm run unit && npm run integration"
   },
   "author": {
     "name": "Jonathon Storer",

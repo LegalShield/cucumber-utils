@@ -13,4 +13,9 @@ defineSupportCode(function({Given, When, Then}) {
     var parsed = cucumberUtils.table.rawToObject(this._raw);
     expect(parsed).to.eql(JSON.parse(string));
   });
+
+  Then('it should parse from rows to:', function (string) {
+    var parsed = cucumberUtils.table.rowsToObject(this._rows);
+    expect(parsed).to.eql(JSON.parse(string));
+  });
 });
