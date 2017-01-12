@@ -1,6 +1,6 @@
 Feature: Raw To Object
 
-  Scenario: converts raw to object
+  Scenario: converts hashes to object
     Given the following:
       | key        | value |
       | id         | 1     |

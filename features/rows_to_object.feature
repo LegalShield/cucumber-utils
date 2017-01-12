@@ -1,6 +1,6 @@
 Feature: Raw To Object
 
-  Scenario: converts raw to object
+  Scenario: converts rows to object
     Given the following:
       | key        | value |
       | id         | 1     |
