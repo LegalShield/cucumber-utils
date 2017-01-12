@@ -86,4 +86,14 @@ describe('table', function () {
       });
     });
   });
+
+  describe('#rawToObject', function () {
+    it('creates rows from hashes', function () {
+      var input = [ { key: 'id', value: '123' },
+                    { key: 'email', value: 'user@example.com' } ];
+      var actual = table.hashesToObject(input);
+
+      expect(actual).to.deep.equal({ id: 123, email: 'user@example.com' });
+    });
+  });
 });

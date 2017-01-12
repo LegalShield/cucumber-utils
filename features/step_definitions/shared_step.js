@@ -18,4 +18,9 @@ defineSupportCode(function({Given, When, Then}) {
     var parsed = cucumberUtils.table.rowsToObject(this._rows);
     expect(parsed).to.eql(JSON.parse(string));
   });
+
+  Then('it should parse from hashes to:', function (string) {
+    var parsed = cucumberUtils.table.hashesToObject(this._hashes);
+    expect(parsed).to.eql(JSON.parse(string));
+  });
 });
