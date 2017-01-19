@@ -1,1 +1,1 @@
-module.exports.helpers = require('./lib/helpers')
+module.exports.table = require('./lib/table')
