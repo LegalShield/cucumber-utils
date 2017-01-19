@@ -2,7 +2,7 @@ var defineSupportCode = require('cucumber').defineSupportCode;
 var cucumberUtils = require('../../');
 var expect = require('chai').expect;
 
-defineSupportCode(function({Given, When, Then}) {
+defineSupportCode(function({ Given, When, Then }) {
   Given('the following:', function(table) {
     this._rows = table.rows();
     this._raw = table.raw();
