@@ -95,17 +95,4 @@ describe('table', function () {
       expect(actual).to.deep.equal({ id: 123, email: 'user@example.com' });
     });
   });
-
-  describe('#rawToFormBody', function () {
-    it('creates rows from hashes', function () {
-      var input = [ { key: 'id', value: '123' },
-                    { key: 'email', value: 'user@example.com' } ];
-      var actual = table.rowToFormBody(input);
-
-      expect(actual).to.deep.equal({
-        id: 123,
-        email: 'user@example.com'
-      });
-    });
-  });
 });
