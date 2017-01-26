@@ -61,8 +61,7 @@ describe('table', function () {
       });
     });
 
-    it('makes base an object when base keys are mixed numbers and other', function () {
-      var input = [ [ '0', 'First' ], [ 'two', 'Last' ] ];
+    it('makes base an object when base keys are mixed numbers and other', function () { var input = [ [ '0', 'First' ], [ 'two', 'Last' ] ];
       var actual = table.rawToObject(input);
 
       expect(actual).to.eql({
@@ -87,13 +86,26 @@ describe('table', function () {
     });
   });
 
-  describe('#rawToObject', function () {
+  describe('#hashesToObject', function () {
     it('creates rows from hashes', function () {
       var input = [ { key: 'id', value: '123' },
                     { key: 'email', value: 'user@example.com' } ];
       var actual = table.hashesToObject(input);
 
       expect(actual).to.deep.equal({ id: 123, email: 'user@example.com' });
+    });
+  });
+
+  describe('#rawToFormBody', function () {
+    it('creates rows from hashes', function () {
+      var input = [ { key: 'id', value: '123' },
+                    { key: 'email', value: 'user@example.com' } ];
+      var actual = table.rowToFormBody(input);
+
+      expect(actual).to.deep.equal({
+        id: 123,
+        email: 'user@example.com'
+      });
     });
   });
 });
