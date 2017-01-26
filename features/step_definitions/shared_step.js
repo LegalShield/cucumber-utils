@@ -3,24 +3,22 @@ var cucumberUtils = require('../../');
 var expect = require('chai').expect;
 
 defineSupportCode(function({ Given, When, Then }) {
-  Given('the following:', function(table) {
-    this._rows = table.rows();
-    this._raw = table.raw();
-    this._hashes = table.hashes();
+  let data;
+
+  let types = {
+    "raw to object": 'rawToObject',
+    "raw to form body": 'rawToFormBody',
+    "rows to object": 'rowsToObject',
+    "rows to form body": 'rowsToFormBody',
+    "hashes to object": 'hashesToObject',
+    "hashes to form body": 'hashesToFormBody'
+  };
+
+  Given(/^the following (rows|raw|hashes) (object|form body):$/, function(input, output, table) {
+    data = cucumberUtils.table[types[input + ' to ' + output]](table[input]())
   });
 
-  Then('it should parse from raw to:', function (string) {
-    var parsed = cucumberUtils.table.rawToObject(this._raw);
-    expect(parsed).to.eql(JSON.parse(string));
-  });
-
-  Then('it should parse from rows to:', function (string) {
-    var parsed = cucumberUtils.table.rowsToObject(this._rows);
-    expect(parsed).to.eql(JSON.parse(string));
-  });
-
-  Then('it should parse from hashes to:', function (string) {
-    var parsed = cucumberUtils.table.hashesToObject(this._hashes);
-    expect(parsed).to.eql(JSON.parse(string));
+  Then(/^it should have parsed as:$/, function (string) {
+    expect(data).to.eql(JSON.parse(string));
   });
 });
